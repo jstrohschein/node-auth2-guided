@@ -10,6 +10,8 @@ module.exports = (req, res, next) => {
     return;
   }
 
-  jwt.verify()
+  jwt.verify(token, jwtSecret, () => {
+    
+  })
 
 };
