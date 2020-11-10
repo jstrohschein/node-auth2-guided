@@ -4,10 +4,12 @@ const Users = require("./users-model.js");
 const restricted = require("../auth/restricted-middleware.js");
 
 function roleChecker(role) {
-  return 
+  return function (req, res, next) {
+    next()
+  }
 }
 
-router.get("/", restricted, (req, res) => {
+router.get("/", restricted, roleChecker(), (req, res) => {
   Users.find()
     .then(users => {
       res.status(200).json(users);
