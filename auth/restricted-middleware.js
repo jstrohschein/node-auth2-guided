@@ -6,14 +6,12 @@ module.exports = (req, res, next) => {
   const token = req.headers.authorization;
 
   if (!token) {
-    res.status(401).json({ message: 'we wants token' });
-    return;
+    return res.status(401).json({ message: 'we wants token' });
   }
 
   jwt.verify(token, jwtSecret, (err, decoded) => {
     if (err) {
-      res.status(401).json({ message: 'token bad' });
-      return;
+      return res.status(401).json({ message: 'token bad' });
     }
 
     console.log('decoded token ->', decoded);
