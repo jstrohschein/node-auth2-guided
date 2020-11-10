@@ -24,4 +24,5 @@ router.get("/", restricted, roleChecker(1), (req, res) => {
 module.exports = router;
 
 
-// react form, login, gets token in the res.data.token
+// 1- react form, login, gets token in the res.data.token
+// 2- axios to make a request to a protected enpoint Authorization
