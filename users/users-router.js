@@ -6,9 +6,9 @@ const restricted = require("../auth/restricted-middleware.js");
 function roleChecker(role) {
   return function (req, res, next) {
     if (req.decodedJwt.role === role) {
-      next
+      next()
     } else {
-      res.status(401).json
+      res.status(401).json({ message: 'you have no pawa' })
     }
   }
 }
