@@ -9,7 +9,7 @@ function roleChecker(role) {
   }
 }
 
-router.get("/", restricted, roleChecker(), (req, res) => {
+router.get("/", restricted, roleChecker(1), (req, res) => {
   Users.find()
     .then(users => {
       res.status(200).json(users);
