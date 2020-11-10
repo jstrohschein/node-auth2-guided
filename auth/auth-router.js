@@ -4,6 +4,7 @@ const router = require("express").Router();
 
 const Users = require("../users/users-model.js");
 const { isValid } = require("../users/users-service.js");
+const { jwtSecret } = require('./secrets.js');
 
 router.post("/register", (req, res) => {
   const credentials = req.body;
