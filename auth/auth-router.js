@@ -67,7 +67,7 @@ function makeToken(user) {
     foo: 'bar',
   };
   const options = {
-    expiresIn: '15 seconds',
+    expiresIn: '25 seconds',
   };
   return jwt.sign(payload, jwtSecret, options);
 }
