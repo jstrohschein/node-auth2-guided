@@ -5,7 +5,11 @@ const restricted = require("../auth/restricted-middleware.js");
 
 function roleChecker(role) {
   return function (req, res, next) {
-    next()
+    if (req.decodedJwt.role === role) {
+      next
+    } else {
+      res.status(401).json
+    }
   }
 }
 
