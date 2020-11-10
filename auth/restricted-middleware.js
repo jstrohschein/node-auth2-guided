@@ -16,6 +16,7 @@ module.exports = (req, res, next) => {
     }
 
     console.log('decoded token ->', decoded);
+    req.decodedJwt = decoded;
     next();
   });
 };
