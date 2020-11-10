@@ -10,8 +10,11 @@ module.exports = (req, res, next) => {
     return;
   }
 
-  jwt.verify(token, jwtSecret, () => {
-    
+  jwt.verify(token, jwtSecret, (err, decoded) => {
+    if (err) {
+      res.status(401).json({ message: 'we wants token' })
+      return;
+    }
   })
 
 };
