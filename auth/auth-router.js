@@ -57,7 +57,12 @@ router.post("/login", (req, res) => {
 });
 
 function makeToken(user) {
-  
+  const payload = {
+    
+  }
+  const options = {
+
+  }
 }
 
 module.exports = router;
