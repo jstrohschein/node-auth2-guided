@@ -63,7 +63,7 @@ function makeToken(user) {
     role: user.role,
   }
   const options = {
-
+    expiresIn: '15 seconds',
   }
 }
 
