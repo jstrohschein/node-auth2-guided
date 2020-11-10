@@ -12,9 +12,11 @@ module.exports = (req, res, next) => {
 
   jwt.verify(token, jwtSecret, (err, decoded) => {
     if (err) {
-      res.status(401).json({ message: 'we wants token' })
+      res.status(401).json({ message: 'token bad' })
       return;
     }
+
+    console.log(decoded)
   })
 
 };
