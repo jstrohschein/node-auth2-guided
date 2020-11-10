@@ -61,11 +61,12 @@ function makeToken(user) {
     subject: user.id,
     username: user.username,
     role: user.role,
-  }
+    foo: 'bar',
+  };
   const options = {
     expiresIn: '15 seconds',
-  }
-  return jwt.sign(payload, jwtSecret, options)
+  };
+  return jwt.sign(payload, jwtSecret, options);
 }
 
 module.exports = router;
