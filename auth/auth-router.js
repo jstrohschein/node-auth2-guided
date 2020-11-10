@@ -1,9 +1,12 @@
 const bcryptjs = require("bcryptjs");
+// import the library
 const jwt = require('jsonwebtoken');
 const router = require("express").Router();
 
 const Users = require("../users/users-model.js");
 const { isValid } = require("../users/users-service.js");
+
+// pull in the secret we'll use to make the JWT
 const { jwtSecret } = require('./secrets.js');
 
 router.post("/register", (req, res) => {
@@ -38,10 +41,9 @@ router.post("/login", (req, res) => {
   if (isValid(req.body)) {
     Users.findBy({ username: username })
       .then(([user]) => {
-        // compare the password the hash stored in the database
         if (user && bcryptjs.compareSync(password, user.password)) {
-          const token = makeToken(user)
-          res.status(200).json({ message: "Welcome to our API", token });
+          const token = makeToken(user) // make token
+          res.status(200).json({ message: "Welcome to our API", token }); // send it back
         } else {
           res.status(401).json({ message: "Invalid credentials" });
         }
