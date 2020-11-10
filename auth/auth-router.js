@@ -58,6 +58,7 @@ router.post("/login", (req, res) => {
   }
 });
 
+// helper to make the token using the user from db as raw material
 function makeToken(user) {
   const payload = {
     subject: user.id,
